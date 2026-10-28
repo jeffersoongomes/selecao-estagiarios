@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção de Estagiários - Loop While</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Processo Seletivo de Estagiários</h1>
+        <p>O script foi iniciado. Consulta o <strong>Console</strong> do navegador (F12) para ver os resultados das notas dos 10 candidatos[cite: 2].</p>
+    </div>
+
+    <script>
+        let nota;
+        let count = 1;
+
+        // Estrutura de repetição While para no máximo 10 estudantes[cite: 2]
+        while (count <= 10) {
+            let entrada = prompt(`Candidato ${count} de 10 - Informe a nota do estudante:`);
+            
+            // Se o utilizador clicar em cancelar, interrompe o loop
+            if (entrada === null) {
+                alert("Processo interrompido pelo utilizador.");
+                break;
+            }
+
+            nota = parseFloat(entrada);
+
+            // Validação simples da nota
+            if (!isNaN(nota)) {
+                if (nota <= 10 && nota >= 8) {
+                    console.log(`Candidato ${count}: Nota ${nota} -> Conceito A`);
+                } else if (nota < 8 && nota >= 5) {
+                    console.log(`Candidato ${count}: Nota ${nota} -> Conceito B`);
+                } else {
+                    console.log(`Candidato ${count}: Nota ${nota} -> Você precisa se dedicar um pouco mais`);
+                }
+                count++;
+            } else {
+                alert("Por favor, insira um valor numérico válido.");
+            }
+        }
+
+        console.log("Quantidade máxima limite de 10 pessoas foi alcançada. Aplicação encerrada.");
+        alert("Limite de 10 candidatos alcançado! Verifica o console para ver o relatório.");
+    </script>
+
+</body>
+</html>
